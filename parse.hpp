@@ -5,13 +5,19 @@
 #include <sstream>
 #include <string>
 
+#define MAXARGS 32
+
 class Parse
 {
 private:
-  std::string testStr;
+  //const int MAXARGS = 32;
+  char *inputRedirect;  //filename for input
+  char *outputRedirect; //filename for output
+  int argumentCount;
+  char *argumentVector[MAXARGS];
 public:
-  Parse();
-  std::string print();
+  Parse(int argc, char** argv);
+  std::string printParams();
   friend std::ostream& operator<<(std::ostream& os, const Parse& p);
 };
 
