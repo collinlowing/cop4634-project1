@@ -3,6 +3,7 @@
 #include<sstream>
 
 #include "catch/catch.hpp"
+#include "../parse.hpp"
 // uncomment and add includes per your program layout
 // #include "../.hpp"
 // #include "../.hpp"
@@ -13,10 +14,12 @@
   the above includes to match header files in your
   program.
  **************************************************/
-TEST_CASE("class XXXX")
+TEST_CASE("class Parse")
 {
-  // edit test cases for however many classes you
-  // create
-  REQUIRE(true);
+  std::ostringstream parseTest;
+  Parse p;
+  parseTest << p;
+
+  REQUIRE(parseTest.str() == "test success!");
   REQUIRE(true);
 }

@@ -1,14 +1,13 @@
-CFLAGS = -g -Wall 
-CC = gcc
+CFLAGS = -g -Wall
+CC = g++
 
-objects = test.o sort.o
+objects = myshell.o parse.o
 
-test: $(objects)
-	$(CC) -o test $(objects)
+myshell: $(objects)
+	$(CC) -o myshell $(objects)
 
-test.o: test.c sort.h
-sort.o: sort.c sort.h
+myshell.o: myshell.cpp
+parse.o: parse.cpp parse.hpp
 
-.PHONY : clean
-clean: 
-	rm test $(objects)
+clean:
+	rm myshell *.o *.gc* *.dSYM
