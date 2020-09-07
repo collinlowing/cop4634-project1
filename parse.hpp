@@ -3,13 +3,16 @@
 
 #include <iostream>
 #include <sstream>
+#include <string>
 
 class Parse
 {
 private:
-
+  std::string testStr;
 public:
-  void print();
+  Parse();
+  std::string print();
+  friend std::ostream& operator<<(std::ostream& os, const Parse& p);
 };
 
 #endif

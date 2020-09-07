@@ -4,7 +4,7 @@ int main()
 {
   Parse Param;
 
-  Param.print();
+  std::cout << Param.print();
 
   return 0;
 }
