@@ -14,12 +14,13 @@
   the above includes to match header files in your
   program.
  **************************************************/
-TEST_CASE("class Parse")
+
+TEST_CASE("Parse Constructor")
 {
   std::ostringstream parseTest;
   Parse p;
   parseTest << p;
 
-  REQUIRE(parseTest.str() == "test success!");
+  REQUIRE(parseTest.str() == "This is a test");
   REQUIRE(true);
 }
