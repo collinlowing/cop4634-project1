@@ -1,6 +1,7 @@
 #ifndef PARSE_HPP
 #define PARSE_HPP
 
+#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>

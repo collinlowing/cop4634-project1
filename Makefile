@@ -8,4 +8,4 @@ myshell: myshell.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	$(RM) *.o *.gc* *.dSYM test/test core main
+	$(RM) *.o *.gc* *.dSYM test/test core myshell
