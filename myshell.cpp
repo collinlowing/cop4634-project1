@@ -8,7 +8,7 @@ int main(int argc, char** argv)
   for (int i = 0; i < argc; ++i)
     std::cout << argv[i] << "\n";
 
-  Parse Param;
+  Parse Param(argc, argv);
   Param.printParams();
 
   return 0;

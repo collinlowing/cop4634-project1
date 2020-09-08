@@ -11,9 +11,10 @@ class Parse
 private:
   char* inputRedirect;
   char* outputRedirect;
-  char* argumentVector[MAXARGS];
+  char** argumentVector;
   int   argumentCount;
 public:
+  Parse(int argc, char** argv);
   void printParams();
 };
 
