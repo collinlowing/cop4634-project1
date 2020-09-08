@@ -1,10 +1,16 @@
 #include "parse.hpp"
 
-int main()
+int main(int argc, char** argv)
 {
-  Parse Param;
+  std::cout << "You have entered " << argc
+            << " arguments:" << "\n";
 
-  std::cout << Param.print();
+  for (int i = 0; i < argc; ++i)
+    std::cout << argv[i] << "\n";
+
+  Parse Param(argc, argv);
+  Param.printParams();
+
 
   return 0;
 }

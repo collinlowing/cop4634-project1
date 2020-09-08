@@ -1,19 +1,41 @@
 #include "parse.hpp"
 
-Parse::Parse()
+
+Parse::Parse(int argc, char** argv)
 {
-  print();
+  Parse::argumentCount = argc;
+  if(argc <= MAXARGS)
+  {
+    Parse::argumentVector = argv;
+  }
+  else
+  {
+    std::cout << "ERROR: arguments exceed maximum (32)";
+    exit(1);
+  }
 }
 
-std::string Parse::print()
-{
-  testStr = "This is a test";
-  return testStr;
-}
 
-std::ostream& operator<<(std::ostream& os, const Parse& p)
+void Parse::printParams()
 {
-	os << p.testStr;
+  if (Parse::inputRedirect != nullptr)
+      std::cout << "inputRedirect: [" << Parse::inputRedirect << "]" << std::endl;
+  else
+      std::cout << "inputRedirect: [NULL]" << std::endl;
 
-  return os;
+  if (outputRedirect != nullptr)
+      std::cout << "outputRedirect: [" << outputRedirect << "]" << std::endl;
+  else
+      std::cout << "outputRedirect: [NULL]" << std::endl;
+/*
+  std::cout << "InputRedirect: ["
+            << ((Parse::inputRedirect != NULL) ? Parse::inputRedirect : "NULL") << "]" << std::endl
+            << "OutputRedirect: ["
+            << (Parse::outputRedirect != NULL) ? Parse::outputRedirect : "NULL" << "]" << std::endl
+            << "ArgumentCount: [" << Parse::argumentCount << "]" << std::endl;
+  for (int i = 0; i < Parse::argumentCount; i++)
+    std::cout << "ArgumentVector[" << i << "]: ["
+              << Parse::argumentVector[i] << "]" << std::endl;
+*/
+
 }
