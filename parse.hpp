@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string>
 
 #define MAXARGS 32
 
@@ -16,6 +17,7 @@ private:
 public:
   Parse(int argc, char** argv);
   void printParams();
+
 };
 
 #endif

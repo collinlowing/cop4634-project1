@@ -1,5 +1,6 @@
 #include "parse.hpp"
 
+
 Parse::Parse(int argc, char** argv)
 {
   Parse::argumentCount = argc;
@@ -36,4 +37,5 @@ void Parse::printParams()
     std::cout << "ArgumentVector[" << i << "]: ["
               << Parse::argumentVector[i] << "]" << std::endl;
 */
+
 }
