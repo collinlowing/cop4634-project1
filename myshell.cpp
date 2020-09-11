@@ -1,65 +1,27 @@
+// Collin Lowing, Charles Travis
+
 #include "parse.hpp"
 
-
-void commandHandling(char* command)
+int main()
 {
+   std::string prompt = "user:~$ ";     //command prompt. Initialized as a variable incase we need to append to it for directory changes.
+   std::string command;                 //variable where the user command line instructions are stored stored.
+   
 
-}
+   while (1)
+   {
+      std::cout << prompt;
+      std::getline(std::cin, command);
 
-void inRedirect(std::string fileName)
-{
+      //intant check for an exit call from the command string before its parsed.
+      if (command.find("exit") != std::string::npos)  
+      {
+         break;
+      }
 
-}
-
-void outRedirect(std::string fileName)
-{
-  std::fstream fileOut;
-  fileOut.open(fileName, std::ios::out);
-
-  // File IO Exception handling (if... else)
-  if(fileOut)
-  {
-    // Creating buffers for cout, cin and file
-    std::streambuf* bufferCout = std::cout.rdbuf();
-    std::streambuf* bufferCin = std::cin.rdbuf();
-    std::streambuf* bufferFile = fileOut.rdbuf();
-
-    // Redirect std::cout to file
-    std::cout.rdbuf(bufferFile);
-
-    /*************For Testing******************/
-      std::cout << "Testing outputRedirect()" << std::endl;
-    /***************End***********************/
-
-    // Redirect std::cout back to screen
-    std::cout.rdbuf(bufferCout);
-
-    // Closing file output stream
-    fileOut.close();
-  }
-  else
-    std::cout << "ERROR: output file redirect failed. Please try again" << std::endl;
-
-}
-
-
-int main(int argc, char** argv)
-{
-
-/*************For Testing******************/
-  std::cout << "You have entered " << argc
-            << " arguments:" << "\n";
-
-  for (int i = 0; i < argc; i++)
-    std::cout << argv[i] << "\n";
-
-    // File output redirect
-    //outRedirect("testOut.txt");
-/***************End***********************/
-
-  Parse Param(argc, argv);
-  Param.printParams();
-
-
-  return 0;
+      Parse Param(command);
+      Param.printParams();
+   }
+   system("pause");
+   return 0;
 }
