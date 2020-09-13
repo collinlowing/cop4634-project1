@@ -16,7 +16,7 @@ void Parse::parseCommandline()
 
    convertString = strtok(convertString, " ");
    int i = 0;
-   while (convertString != nullptr)         
+   while (convertString != nullptr)
    {
       if (convertString[0] == '<')
       {
@@ -41,7 +41,7 @@ void Parse::parseCommandline()
       else
       {
          ++counter;
-        
+
          if (counter > MAXARGS)
          {
             std::cout << "!!!Warning this system command line overload. They system can only handle 32 arguments!!!" << std::endl;
@@ -50,9 +50,9 @@ void Parse::parseCommandline()
          }
          setParam->setargumentVector(convertString);
          setParam->setargumentCount(counter);
-        
+
       }
-      convertString = strtok(nullptr, " ");         
+      convertString = strtok(nullptr, " ");
    }
    //if(-Debug argument from the myshell launch is included)
    setParam->printParams();
@@ -64,4 +64,3 @@ Parse::Parse(std::string command)
    setParam = new Param;
    parseCommandline();
 }
-

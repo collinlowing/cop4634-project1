@@ -3,8 +3,8 @@
 #define PARSE_HPP
 
 #include <iostream>
-
 #include <string>
+#include <cstring>
 
 #include "param.hpp"
 
@@ -21,7 +21,7 @@ public:
    Parse();
    Parse(std::string command);
    ~Parse() { /*std::cout << "deleted" << std::endl;*/ };
-   
+
 
 };
 
