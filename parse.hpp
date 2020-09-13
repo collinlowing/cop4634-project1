@@ -20,7 +20,7 @@ private:
 public:
    Parse();
    Parse(std::string command);
-   ~Parse() { /*std::cout << "deleted" << std::endl;*/ };
+   ~Parse() { delete[] setParam; };
 
 
 };

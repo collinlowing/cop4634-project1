@@ -7,15 +7,22 @@ Parse::Parse()
    commandline = "";
 }
 
+Parse::Parse(std::string command)
+{
+   commandline = command;
+   setParam = new Param;
+   parseCommandline();
+}
+
 void Parse::parseCommandline()
 {
+   bool debug = false;
    int counter = 0;
 
    char * convertString = new char[commandline.length() + 1];
    strcpy(convertString, commandline.c_str());
 
    convertString = strtok(convertString, " ");
-   int i = 0;
    while (convertString != nullptr)
    {
       if (convertString[0] == '<')
@@ -23,7 +30,7 @@ void Parse::parseCommandline()
          if (convertString[1] == '\0')
          {
             std::cout << "!!!Warning: the < operator must have a connecting file name!!!" << std::endl;
-            delete setParam;
+            delete[] convertString;
             return;
          }
          setParam->setinputRedirect(&convertString[1]);
@@ -33,34 +40,32 @@ void Parse::parseCommandline()
          if (convertString[1] == '\0')
          {
             std::cout << "!!!Warning: the > operator must have a connecting file name. Aborting commandline!!!" << std::endl;
-            delete setParam;
+            delete[] convertString;
             return;
          }
          setParam->setoutputRedirect(&convertString[1]);
       }
       else
       {
-         ++counter;
+        if(strcmp(convertString, "-debug") == 0 || strcmp(convertString, "-Debug") == 0)
+          debug = true;
 
-         if (counter > MAXARGS)
-         {
-            std::cout << "!!!Warning this system command line overload. They system can only handle 32 arguments!!!" << std::endl;
-            delete setParam;
-            return;
-         }
-         setParam->setargumentVector(convertString);
-         setParam->setargumentCount(counter);
+        ++counter;
+
+        if (counter > MAXARGS)
+        {
+           std::cout << "!!!Warning this system command line overload. They system can only handle 32 arguments!!!" << std::endl;
+           delete[] convertString;
+           return;
+        }
+        setParam->setargumentVector(convertString);
+        setParam->setargumentCount(counter);
 
       }
       convertString = strtok(nullptr, " ");
    }
-   //if(-Debug argument from the myshell launch is included)
-   setParam->printParams();
-}
+   delete[] convertString;
 
-Parse::Parse(std::string command)
-{
-   commandline = command;
-   setParam = new Param;
-   parseCommandline();
+   if(debug)
+     setParam->printParams();
 }
