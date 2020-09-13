@@ -11,7 +11,7 @@ private:
    char* argumentVector[MAXARGS];
    int   argumentCount;
 public:
-   Param();
+   //Param();
    void printParams();
 
    void setinputRedirect(char *);

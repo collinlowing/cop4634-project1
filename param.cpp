@@ -1,14 +1,16 @@
 #include "param.hpp"
 #include <iostream>
 
-Param::Param() 
+/*
+Param::Param()
 {
    argumentCount = 0;
-   
+
    inputRedirect = nullptr;
-   
-   outputRedirect = nullptr; 
+
+   outputRedirect = nullptr;
 }
+*/
 void Param::printParams()
 {
    std::cout << "InputRedirect: ["

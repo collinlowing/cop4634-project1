@@ -66,6 +66,7 @@ void Parse::parseCommandline()
    }
    delete[] convertString;
 
+
    if(debug)
      setParam->printParams();
 }
