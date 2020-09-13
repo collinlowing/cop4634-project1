@@ -6,21 +6,22 @@
 
 #include <string>
 
+#include "param.hpp"
 
 
 
-#define MAXARGS 32
 
 class Parse
 {
 private:
-   char* inputRedirect;
-   char* outputRedirect;
-   char* argumentVector[MAXARGS];
-   int   argumentCount;
+   Param * setParam;
+   std::string commandline;
+   void parseCommandline();
 public:
+   Parse();
    Parse(std::string command);
-   void printParams();
+   ~Parse() { /*std::cout << "deleted" << std::endl;*/ };
+   
 
 };
 
