@@ -20,5 +20,6 @@ public:
    void setargumentVector(char *);
 
    int getargumentCount();
+   char* getargumentVector();
 };
 #endif

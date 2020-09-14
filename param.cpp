@@ -1,16 +1,16 @@
 #include "param.hpp"
 #include <iostream>
 
-/*
-Param::Param()
-{
-   argumentCount = 0;
 
-   inputRedirect = nullptr;
+//Param::Param()
+//{
+  // argumentCount = 0;
 
-   outputRedirect = nullptr;
-}
-*/
+  // inputRedirect = nullptr;
+
+  // outputRedirect = nullptr;
+//}
+
 void Param::printParams()
 {
    std::cout << "InputRedirect: ["
@@ -46,4 +46,9 @@ void Param::setargumentVector(char * argumentVector)
 int Param::getargumentCount()
 {
    return this->argumentCount;
+}
+
+char* Param::getargumentVector()
+{
+	return argumentVector[argumentCount];
 }
