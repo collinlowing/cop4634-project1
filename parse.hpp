@@ -17,12 +17,13 @@ private:
    Param * setParam;
    std::string commandline;
    void parseCommandline();
+   char* convertString;
    int counter = 0;
    bool debug = false;
 public:
    Parse();
    Parse(std::string command, bool debug);
-   ~Parse() { /* delete[] setParam; */}
+   ~Parse();
    void setDebug(bool debug) { this->debug = debug; }
 
 
