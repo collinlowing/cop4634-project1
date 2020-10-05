@@ -1,0 +1,16 @@
+Project 1
+Collin Lowing, Charles Travis
+Systems & Networks I - COP4634 Section 80471
+September 13, 2020
+
+Summary
+
+This project is split up into two parts. The first part of this project is so that the program can handle commands in a custom shell called “myshell”. The second part expands on the myshell program and handles the execution of multiple external processes using the fork() system call and exec() system call. This project is developed by a two person team and work is to be divided among the team members.
+
+Achievements
+
+For part 1 of the project we achieved processing for command line arguments, parsing user input commands, storing those parsed commands in a class object and printing those formatted commands to the screen. A character array is used to input command line arguments during the run command for the program named myshell. If “-debug” or “-Debug” is the first run command line argument, a boolean value is set to true that will allow the printParams() method to be called after each command and additional arguments are ignored. The commands that are input from the user after being assigned to a c_string data type and parsed by the Parse class using the strtok() method and error checking is implemented. The parsed commands are then passed to the Param class which stores the parsed arguments and prints the debug message with the printParams() method. Then the user input is taken again and the process repeats in a while loop.
+
+Next Steps
+
+The project needs to address issues involving memory leaks caused by using the “new” operator to allocate object and character pointers in heap memory. Then, the project needs to implement methods in the myshell program, likely in a new class, that will process fork() and exec() commands and their associated methods. The program will also have to assess and avoid zombie processes that are common when using the fork() system call. Zombie processes are processes that have completed execution but still entered into the process table. The “exit” command handling is already implemented in part 1 of the project, but this must be refactored to avoid zombie processes.

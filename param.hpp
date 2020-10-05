@@ -1,3 +1,5 @@
+// Authors: Charles Travis, Collin Lowing
+
 #ifndef PARAM_HPP
 #define PARAM_HPP
 
@@ -10,8 +12,11 @@ private:
    char* outputRedirect;
    char* argumentVector[MAXARGS];
    int   argumentCount;
+   
+   
+   
 public:
-   //Param();
+   Param();
    void printParams();
 
    void setinputRedirect(char *);
@@ -20,5 +25,6 @@ public:
    void setargumentVector(char *);
 
    int getargumentCount();
+   char* getargumentVector();
 };
 #endif
